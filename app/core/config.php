@@ -3,7 +3,7 @@
 if(!defined('curso')) exit;
 
 $dbConfig = [
-    'servidor' => 'localhsot',
+    'servidor' => 'localhost',
     'usuario' => 'root',
     'senha' => 'kiraFE22',
     'dbNome' => 'curso',

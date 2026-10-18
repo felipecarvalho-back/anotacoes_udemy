@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 if (ini_get('zlib.output_compression') == 'Off') {
     if (extension_loaded('zlib')) {
         ob_start('ob_gzhandler');

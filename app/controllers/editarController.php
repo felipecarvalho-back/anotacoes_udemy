@@ -11,7 +11,7 @@ require_once(dirname(__DIR__).'/models/editar.php');
 
 $sID = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-if ($_REQUEST['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sNome = filter_input(INPUT_POST, 'nome');
     $sAnotacao = filter_input(INPUT_POST, 'anotacao');
 

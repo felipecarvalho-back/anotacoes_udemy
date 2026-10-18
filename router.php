@@ -1,9 +1,11 @@
 <?php
 // router.php
 
-// Se o arquivo ou diretório solicitado existir fisicamente, sirva-o diretamente
-if (file_exists(__DIR__ . $_SERVER['REQUEST_URI'])) {
-    return false; 
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Se o arquivo solicitado existir fisicamente dentro de public, sirva-o diretamente
+if ($uri !== '/' && is_file(__DIR__ . '/public' . $uri)) {
+    return false;
 }
 
 // Caso contrário, redireciona toda a requisição para o index.php
