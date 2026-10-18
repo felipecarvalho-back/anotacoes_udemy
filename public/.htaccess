@@ -1,0 +1,17 @@
+<Files .htaccess>
+  <IfModule mod_authz_core.c> Require all denied </IfModule>
+  <IdModule !mode_authz_core.c> Order deny.allow Deny from all </IdModule>
+</Files>
+
+Options -Idexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^{.*}$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+    RewriteBase /
+    RewriteRule ^/index\.php$ - [L]
+    RewriteCond %{REQUEST FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
